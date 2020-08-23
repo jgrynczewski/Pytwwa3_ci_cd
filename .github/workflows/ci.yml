@@ -8,5 +8,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Django tests
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           python manage.py test
