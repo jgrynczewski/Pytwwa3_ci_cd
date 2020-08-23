@@ -2,8 +2,9 @@ name: Testing
 on: push
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - name: Run Django tests
-    - run: python manage.py test
+  test_project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Django tests
+      - run: python manage.py test
