@@ -12,13 +12,13 @@ jobs:
           pip3 install -r requirements.txt
       - name: Set up database
         env:
-          DJANGO_KEY: gc0%*xfeokbrxpg4!=$$e7jl$(vbfqc@!r0(*q)*#x+_vi0=
+          DJANGO_KEY:gc0%*xfeokbrxpg4!=$$e7jl$(vbfqc@!r0(*q)*#x+_vi0=
         run: |
           python3 manage.py makemigrations
           python3 manage.py migrate
       - name: Run Django tests
         env:
-          DJANGO_KEY: gc0%*xfeokbrxpg4!=$$e7jl$(vbfqc@!r0(*q)*#x+_vi0=
+          DJANGO_KEY:gc0%*xfeokbrxpg4!=$$e7jl$(vbfqc@!r0(*q)*#x+_vi0=
         run: |
           python3 manage.py test
 
