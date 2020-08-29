@@ -17,7 +17,7 @@ jobs:
         run: |
           python3 manage.py makemigrations
           python3 manage.py migrate
-      -name: Code Linting
+      - name: Code Linting
         run: |
           flake8 . manage.py
       - name: Run Django tests
