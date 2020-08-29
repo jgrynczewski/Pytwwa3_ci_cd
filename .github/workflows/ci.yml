@@ -23,7 +23,7 @@ jobs:
           python3 manage.py migrate
       - name: Code Linting
         run: |
-          flake8 manage.py
+          python3 -m flake8 manage.py --select=E9
       - name: Run Django tests
         env:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
