@@ -10,12 +10,16 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip3 install -r requirements.txt
+          pip3 install flake8
       - name: Set up database
         env:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: |
           python3 manage.py makemigrations
           python3 manage.py migrate
+      -name: Code Linting
+        run: |
+          flake8 . manage.py
       - name: Run Django tests
         env:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
