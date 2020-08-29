@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Set up python 3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
@@ -19,7 +23,7 @@ jobs:
           python3 manage.py migrate
       - name: Code Linting
         run: |
-          python3 -m flake8 manage.py
+          flake8 manage.py
       - name: Run Django tests
         env:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
