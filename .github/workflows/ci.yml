@@ -6,10 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run Django tests
+      - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
           pip3 install -r requirements.txt
+      - name: Run Django tests
+        run: |
           python3 manage.py makemigrations
           python3 manage.py migrate
           python3 manage.py test
+          
