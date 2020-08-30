@@ -1,7 +1,5 @@
-name: Build and deploy
+name: Build and test
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -35,4 +33,3 @@ jobs:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: |
           python3 manage.py test
-
