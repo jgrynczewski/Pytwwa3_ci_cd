@@ -1,4 +1,4 @@
-name: Testing
+name: Build and deploy
 on:
   push:
     branches: [ master ]
@@ -33,4 +33,8 @@ jobs:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: |
           python3 manage.py test
-
+      - name: Deploy to Heroku
+        if: job.status == 'success'
+        run: |
+          git remote add heroku  https://heroku:${{ secrets.HEROKU_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_APP }}.git
+          git push heroku HEAD:master -f
