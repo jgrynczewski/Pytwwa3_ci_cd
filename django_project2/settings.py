@@ -120,3 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+if os.getenv("DEPLOY"):
+    import django_heroku
+    django_heroku.settings(locals())
+    DEBUG = False

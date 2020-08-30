@@ -1,7 +1,5 @@
-name: Testing
+name: Build and test
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -10,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set up python 3.6
         uses: actions/setup-python@v2
         with:
@@ -33,4 +33,3 @@ jobs:
           DJANGO_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: |
           python3 manage.py test
-
