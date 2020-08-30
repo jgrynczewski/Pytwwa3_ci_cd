@@ -12,6 +12,7 @@ class Message(models.Model):
         choices=[
         ("", "---------"),
         ('question', "Pytanie"),
+        ('answer', "Odpowiedź"),
         ('other', "Inne")
         ]
     )
